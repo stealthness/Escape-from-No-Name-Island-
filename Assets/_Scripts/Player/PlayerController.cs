@@ -1,6 +1,8 @@
-﻿namespace _Scripts.Player
+﻿using UnityEngine;
+
+namespace _Scripts.Player
 {
-    public class PlayerController
+    public class PlayerController :MonoBehaviour
     {
         
     }
