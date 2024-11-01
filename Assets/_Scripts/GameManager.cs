@@ -1,16 +1,18 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+namespace _Scripts
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class GameManager : MonoBehaviour
     {
-        
-    }
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
+        {
+            Debug.Log("Game Started");
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void GameOver()
+        {
+            Time.timeScale = 0;
+        }
     }
 }
