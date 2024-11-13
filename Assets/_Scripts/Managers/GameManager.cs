@@ -1,20 +1,18 @@
-using System;
-using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 
-namespace _Scripts
+namespace _Scripts.Managers
 {
     public class GameManager : MonoBehaviour
     {
-        public static GameManager InstanceDescriptor;
+        public static GameManager Instance;
         
 
 
         private void Awake()
         {
-            if (InstanceDescriptor == null)
+            if (Instance == null)
             {
-                InstanceDescriptor = this;
+                Instance = this;
             }
             else
             {
@@ -28,6 +26,11 @@ namespace _Scripts
         void Start()
         {
             Debug.Log("GM : Game Started");
+        }
+        
+        public void StartGame()
+        {
+            Debug.Log("GM : Start Game");
         }
 
 
