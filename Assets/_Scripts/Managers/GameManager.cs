@@ -1,32 +1,35 @@
+using System;
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 
 namespace _Scripts
 {
     public class GameManager : MonoBehaviour
     {
-
-        public GameObject MoonLight;
-        public GameObject SunLight;
+        public static GameManager InstanceDescriptor;
         
+
+
+        private void Awake()
+        {
+            if (InstanceDescriptor == null)
+            {
+                InstanceDescriptor = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+            DontDestroyOnLoad(this);
+        }
+
         
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            Debug.Log("Game Started");
-            
-            InvokeRepeating(nameof(ChangePassiveLight), 10, 20);
+            Debug.Log("GM : Game Started");
         }
 
-        public void ChangePassiveLight()
-        {
-            Debug.Log("ChangePassiveLight");
-            MoonLight.SetActive(!MoonLight.activeSelf);
-            SunLight.SetActive(!SunLight.activeSelf);
-        }
-        
-        public void GameOver()
-        {
-            Time.timeScale = 0;
-        }
+
     }
 }
